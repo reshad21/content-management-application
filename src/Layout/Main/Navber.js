@@ -1,4 +1,7 @@
 import React from 'react';
+import { BiSearchAlt } from "react-icons/bi";
+import { BsFillCartFill } from "react-icons/bs";
+import { IoIosListBox } from "react-icons/io";
 import { Link } from 'react-router-dom';
 
 const Navber = () => {
@@ -15,7 +18,7 @@ const Navber = () => {
                         id='search'
                     />
                     <button>
-                        {/* <BiSearchAlt /> */}
+                        <BiSearchAlt />
                     </button>
                 </li>
                 <li>
@@ -32,12 +35,12 @@ const Navber = () => {
                 </li>
                 <Link to='/'>
                     <li title='Wishlist' className='bg-indigo-500 p-2 rounded-full'>
-                        {/* <IoIosListBox className='text-white' /> */}
+                        <IoIosListBox className='text-white' />
                     </li>
                 </Link>
                 <Link to='/cart'>
                     <li title='cart' className='bg-indigo-500 p-2 rounded-full'>
-                        {/* <BsFillCartFill className='text-white ' /> */}
+                        <BsFillCartFill className='text-white ' />
                     </li>
                 </Link>
             </ul>
