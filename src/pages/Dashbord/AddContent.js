@@ -10,13 +10,35 @@ const AddContent = () => {
             image: data.image,
             tag: data.tag,
             description: data.description,
-            spec: [],
+            // spec: [],
         };
 
         // dispatch(addProduct(data));
-        console.log(product);
-        toast.success('product added Successfully.');
+        // console.log(product);
+        // toast.success('product added Successfully.');
+
+
+        
+        fetch('http://localhost:5000/articls', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(product),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Success:', data);
+                toast.success('product added Successfully.');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
+
+
     };
+
     return (
         <div className='flex justify-center items-center h-full '>
             <form
