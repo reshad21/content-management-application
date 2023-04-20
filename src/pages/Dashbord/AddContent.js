@@ -1,25 +1,21 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 
 const AddContent = () => {
     const { register, handleSubmit } = useForm();
     const submit = (data) => {
         const product = {
-            model: data.model,
-            brand: data.brand,
-            status: data.status === "true" ? true : false,
-            price: data.price,
-            keyFeature: [
-                data.keyFeature1,
-                data.keyFeature2,
-                data.keyFeature3,
-                data.keyFeature4,
-            ],
+            title: data.title,
+            image: data.image,
+            tag: data.tag,
+            description: data.description,
             spec: [],
         };
 
         // dispatch(addProduct(data));
         console.log(product);
+        toast.success('product added Successfully.');
     };
     return (
         <div className='flex justify-center items-center h-full '>
@@ -28,11 +24,12 @@ const AddContent = () => {
                 onSubmit={handleSubmit(submit)}
             >
                 <div className='flex flex-col w-full max-w-xs'>
-                    <label className='mb-2' htmlFor='model'>
-                        Model
+                    <label className='mb-2' htmlFor='title'>
+                        Title
                     </label>
-                    <input className="input input-bordered w-full max-w-xs" type='text' id='model' {...register("model")} />
+                    <input className="input input-bordered w-full max-w-xs" type='text' id='title' {...register("title")} />
                 </div>
+
                 <div className='flex flex-col w-full max-w-xs'>
                     <label className='mb-2' htmlFor='image'>
                         Image
@@ -41,102 +38,27 @@ const AddContent = () => {
                 </div>
 
                 <div className='flex flex-col w-full max-w-xs'>
-                    <label className='mb-3' htmlFor='brand'>
-                        Brand
+                    <label className='mb-3' htmlFor='tag'>
+                        Tags
                     </label>
-                    <select className="select select-bordered w-full max-w-xs" name='brand' id='brand' {...register("brand")}>
+                    <select className="select select-bordered w-full max-w-xs" name='tag' id='tag' {...register("tag")}>
                         <option value='amd'>AMD</option>
                         <option value='intel'>Intel</option>
                     </select>
                 </div>
-                <div className='flex flex-col w-full max-w-xs'>
-                    <label className='mb-2' htmlFor='price'>
-                        Image
-                    </label>
-                    <input className="input input-bordered w-full max-w-xs" type='text' name='price' id='price' {...register("price")} />
-                </div>
 
                 <div className='flex flex-col w-full max-w-xs'>
-                    <h1 className='mb-3'>Availability</h1>
-                    <div className='flex gap-3'>
-                        <div>
-                            <input
-                                type='radio'
-                                id='available'
-                                value={true}
-                                {...register("status")}
-                            />
-                            <label className='ml-2 text-lg' htmlFor='available'>
-                                Available
-                            </label>
-                        </div>
-                        <div>
-                            <input
-                                type='radio'
-                                id='stockOut'
-                                name='status'
-                                value={false}
-                                {...register("status")}
-                            />
-                            <label className='ml-2 text-lg' htmlFor='stockOut'>
-                                Stock out
-                            </label>
-                        </div>
-                    </div>
+                    <label className='mb-2' htmlFor='description'>
+                        Description
+                    </label>
+                    <textarea className="textarea textarea-bordered textarea-xs w-full max-w-xs" placeholder="Bio" type='text' name='description' id='description' {...register("description")} ></textarea>
                 </div>
+
                 <div className='flex flex-col w-full max-w-xs'></div>
-                <div className='flex flex-col w-full max-w-xs'>
-                    <label className='mb-2' htmlFor='keyFeature1'>
-                        Key Feature 1
-                    </label>
-                    <input
-                        className="input input-bordered w-full max-w-xs"
-                        type='text'
-                        name='keyFeature1'
-                        id='keyFeature1'
-                        {...register("keyFeature1")}
-                    />
-                </div>
-                <div className='flex flex-col w-full max-w-xs'>
-                    <label className='mb-2' htmlFor='keyFeature2'>
-                        Key Feature 2
-                    </label>
-                    <input
-                        className="input input-bordered w-full max-w-xs"
-                        type='text'
-                        name='keyFeature2'
-                        id='keyFeature2'
-                        {...register("keyFeature2")}
-                    />
-                </div>
-                <div className='flex flex-col w-full max-w-xs'>
-                    <label className='mb-2' htmlFor='keyFeature3'>
-                        Key Feature 3
-                    </label>
-                    <input
-                        className="input input-bordered w-full max-w-xs"
-                        type='text'
-                        name='keyFeature3'
-                        id='keyFeature3'
-                        {...register("keyFeature3")}
-                    />
-                </div>
-                <div className='flex flex-col w-full max-w-xs'>
-                    <label className='mb-2' htmlFor='keyFeature4'>
-                        Key Feature 4
-                    </label>
-                    <input
-                        className="input input-bordered w-full max-w-xs"
-                        type='text'
-                        name='keyFeature4'
-                        id='keyFeature4'
-                        {...register("keyFeature4")}
-                    />
-                </div>
 
                 <div className='flex justify-between items-center w-full'>
                     <button
-                        className=' px-4 py-3 bg-indigo-500 rounded-md font-semibold text-white text-lg disabled:bg-gray-500'
+                        className=' px-4 py-3 bg-indigo-500 rounded-md font-semibold text-white text-lg disabled:bg-gray-500 btn btn-primary'
                         type='submit'
                     >
                         Submit
