@@ -53,9 +53,7 @@ const AddContent = () => {
                     </label>
                     <textarea className="textarea textarea-bordered textarea-xs w-full max-w-xs" placeholder="Bio" type='text' name='description' id='description' {...register("description")} ></textarea>
                 </div>
-
                 <div className='flex flex-col w-full max-w-xs'></div>
-
                 <div className='flex justify-between items-center w-full'>
                     <button
                         className=' px-4 py-3 bg-indigo-500 rounded-md font-semibold text-white text-lg disabled:bg-gray-500 btn btn-primary'
