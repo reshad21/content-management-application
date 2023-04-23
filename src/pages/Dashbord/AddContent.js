@@ -64,8 +64,11 @@ const AddContent = () => {
                         Tags
                     </label>
                     <select className="select select-bordered w-full max-w-xs" name='tag' id='tag' {...register("tag")}>
-                        <option value='amd'>AMD</option>
-                        <option value='intel'>Intel</option>
+                        <option value='web'>web</option>
+                        <option value='front'>front</option>
+                        <option value='redux'>redux</option>
+                        <option value='backend'>backend</option>
+                        <option value='react'>react</option>
                     </select>
                 </div>
 
