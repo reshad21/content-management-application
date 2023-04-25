@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import ArticleCard from './../../components/ArticleCard';
 
 const Home = () => {
     const articlesState = useSelector((state) => state);
@@ -16,9 +17,10 @@ const Home = () => {
     console.log(articles);
 
     return (
-        <div>
-            <h1>Homepage</h1>
-            
+        <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-5 px-16 lg:px-36 md:25'>
+            {
+                articles.map(article => <ArticleCard article={article} key={article._id}></ArticleCard>)
+            }
         </div>
     );
 };
