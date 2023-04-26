@@ -3,8 +3,8 @@ import { CiViewList } from 'react-icons/ci';
 import { FiEdit } from 'react-icons/fi';
 import { RiDeleteBin7Line } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
+import { deleteContentData } from '../../redux/Thunk/content/deleteContentData';
 import { fetchContent } from '../../redux/Thunk/content/fetchContent';
-import { deleteContent } from '../../redux/actions/content';
 const ProductList = () => {
     const contents = useSelector(state => state.content);
     const dispatch = useDispatch();
@@ -51,7 +51,7 @@ const ProductList = () => {
                                         <th>
                                             <div className="">
                                                 <button className="btn btn-ghost btn-lg text-indigo-600 text-xl"><CiViewList /></button>
-                                                <button onClick={() => dispatch(deleteContent(content._id))} className="btn btn-ghost btn-lg text-rose-600"><RiDeleteBin7Line /></button>
+                                                <button onClick={() => dispatch(deleteContentData(content._id))} className="btn btn-ghost btn-lg text-rose-600"><RiDeleteBin7Line /></button>
                                                 <button className="btn btn-ghost btn-lg text-green-700"><FiEdit /></button>
                                             </div>
                                         </th>
