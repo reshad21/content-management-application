@@ -1,11 +1,14 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
+import { AddContentData } from '../../redux/actions/content';
 
 const AddContent = () => {
+    const dispatch = useDispatch();
     const { register, handleSubmit } = useForm();
     const submit = (data) => {
-        const product = {
+        const article = {
             title: data.title,
             image: data.image,
             tag: data.tag,
@@ -13,27 +16,26 @@ const AddContent = () => {
             // spec: [],
         };
 
-        // dispatch(addProduct(data));
-        // console.log(product);
-        // toast.success('product added Successfully.');
+        dispatch(AddContentData(article))
+        toast.success('article added Successfully.');
 
 
-        
-        fetch('http://localhost:5000/articls', {
-            method: 'POST', // or 'PUT'
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(product),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log('Success:', data);
-                toast.success('product added Successfully.');
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+
+        // fetch('http://localhost:5000/articls', {
+        //     method: 'POST', // or 'PUT'
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(article),
+        // })
+        //     .then((response) => response.json())
+        //     .then((data) => {
+        //         console.log('Success:', data);
+        //         toast.success('article added Successfully.');
+        //     })
+        //     .catch((error) => {
+        //         console.error('Error:', error);
+        //     });
 
 
 

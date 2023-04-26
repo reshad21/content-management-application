@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { LoadProduct } from '../../redux/actions/content';
+import { fetchContent } from '../../redux/Thunk/content/fetchContent';
 import ArticleCard from './../../components/ArticleCard';
 
 const Home = () => {
     const articles = useSelector((state) => state.content);
-    console.log(articles);
+    // console.log(articles);
 
     const dispatch = useDispatch();
 
@@ -19,10 +19,15 @@ const Home = () => {
     // console.log(articles);
 
     //using redux system and use middleware for fetching data
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/articls')
+    //         .then((res) => res.json())
+    //         .then(data => dispatch(LoadProduct(data)))
+    // }, [dispatch])
+
+
     useEffect(() => {
-        fetch('http://localhost:5000/articls')
-            .then((res) => res.json())
-            .then(data => dispatch(LoadProduct(data)))
+        dispatch(fetchContent());
     }, [dispatch])
 
 

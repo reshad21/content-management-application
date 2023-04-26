@@ -1,4 +1,4 @@
-import { LOAD_CONTENT } from "../actionTypes/actionTypes";
+import { ADD_CONTENT, LOAD_CONTENT } from "../actionTypes/actionTypes";
 
 const initialState = {
     test: "test",
@@ -10,6 +10,11 @@ const articleReducer = (state = initialState, action) => {
             return {
                 ...state,
                 content: action.payload,
+            }
+        case ADD_CONTENT:
+            return {
+                ...state,
+                content: [...state.content, action.payload],
             }
         default:
             return state;
