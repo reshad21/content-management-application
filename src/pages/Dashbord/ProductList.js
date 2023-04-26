@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
+import { CiViewList } from 'react-icons/ci';
+import { FiEdit } from 'react-icons/fi';
+import { RiDeleteBin7Line } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContent } from '../../redux/Thunk/content/fetchContent';
-
 const ProductList = () => {
     const contents = useSelector(state => state.content);
     console.log(contents);
@@ -16,15 +18,11 @@ const ProductList = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
-                            </th>
+                            <th>No</th>
                             <th>Name</th>
                             <th>Job</th>
-                            <th>Favorite Color</th>
-                            <th></th>
+                            <th>Tags</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,7 +49,11 @@ const ProductList = () => {
                                         </td>
                                         <td>{content?.tag}</td>
                                         <th>
-                                            <button className="btn btn-ghost btn-xs">details</button>
+                                            <div className="">
+                                                <button className="btn btn-ghost btn-lg text-indigo-600 text-xl"><CiViewList/></button>
+                                                <button className="btn btn-ghost btn-lg text-rose-600"><RiDeleteBin7Line/></button>
+                                                <button className="btn btn-ghost btn-lg text-green-700"><FiEdit/></button>
+                                            </div>
                                         </th>
                                     </tr>)
                             })

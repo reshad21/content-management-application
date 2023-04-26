@@ -1,8 +1,9 @@
 import { AddContentData } from "../../actions/content";
 
 export const addContent = (article) => {
-    // this is for server site code
+    // this is thunk function
     return async(dispatch, getState) => {
+        // this is for server site code
         const res = await fetch('http://localhost:5000/articls', {
             method: 'POST', // or 'PUT'
             body: JSON.stringify(article),
