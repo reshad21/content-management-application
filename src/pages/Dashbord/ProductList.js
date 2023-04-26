@@ -4,9 +4,9 @@ import { FiEdit } from 'react-icons/fi';
 import { RiDeleteBin7Line } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContent } from '../../redux/Thunk/content/fetchContent';
+import { deleteContent } from '../../redux/actions/content';
 const ProductList = () => {
     const contents = useSelector(state => state.content);
-    console.log(contents);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchContent())
@@ -50,9 +50,9 @@ const ProductList = () => {
                                         <td>{content?.tag}</td>
                                         <th>
                                             <div className="">
-                                                <button className="btn btn-ghost btn-lg text-indigo-600 text-xl"><CiViewList/></button>
-                                                <button className="btn btn-ghost btn-lg text-rose-600"><RiDeleteBin7Line/></button>
-                                                <button className="btn btn-ghost btn-lg text-green-700"><FiEdit/></button>
+                                                <button className="btn btn-ghost btn-lg text-indigo-600 text-xl"><CiViewList /></button>
+                                                <button onClick={() => dispatch(deleteContent(content._id))} className="btn btn-ghost btn-lg text-rose-600"><RiDeleteBin7Line /></button>
+                                                <button className="btn btn-ghost btn-lg text-green-700"><FiEdit /></button>
                                             </div>
                                         </th>
                                     </tr>)
