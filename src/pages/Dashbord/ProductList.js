@@ -31,7 +31,7 @@ const ProductList = () => {
                         {
                             contents?.map((content, i) => {
                                 return (
-                                    <tr>
+                                    <tr key={contents._id}>
                                         <th>
                                             <label>
                                                 {i + 1}

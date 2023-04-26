@@ -2,7 +2,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
-import { AddContentData } from '../../redux/actions/content';
+// import { AddContentData } from '../../redux/actions/content';
+import { addContent } from '../../redux/Thunk/content/addContent';
 
 const AddContent = () => {
     const dispatch = useDispatch();
@@ -16,17 +17,18 @@ const AddContent = () => {
             // spec: [],
         };
 
-        dispatch(AddContentData(article))
+        // dispatch(AddContentData(article));
+        dispatch(addContent(article));
         toast.success('article added Successfully.');
 
 
 
         // fetch('http://localhost:5000/articls', {
         //     method: 'POST', // or 'PUT'
+        //     body: JSON.stringify(article),
         //     headers: {
         //         'Content-Type': 'application/json',
         //     },
-        //     body: JSON.stringify(article),
         // })
         //     .then((response) => response.json())
         //     .then((data) => {
