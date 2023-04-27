@@ -12,7 +12,7 @@ const ProductList = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchContent())
-    }, [dispatch])
+    }, [])
     return (
         <div>
             <div className="overflow-x-auto w-full">
@@ -29,7 +29,7 @@ const ProductList = () => {
                     </thead>
                     <tbody>
                         {
-                            contents?.map((content, i) => {
+                            (contents.length > 0) && contents.map((content, i) => {
                                 return (
                                     <tr key={content._id}>
                                         <th>
