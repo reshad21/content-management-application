@@ -3,10 +3,12 @@ import { CiViewList } from 'react-icons/ci';
 import { FiEdit } from 'react-icons/fi';
 import { RiDeleteBin7Line } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { deleteContentData } from '../../redux/Thunk/content/deleteContentData';
 import { fetchContent } from '../../redux/Thunk/content/fetchContent';
 const ProductList = () => {
     const contents = useSelector(state => state.content);
+    console.log(contents);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchContent())
@@ -29,7 +31,7 @@ const ProductList = () => {
                         {
                             contents?.map((content, i) => {
                                 return (
-                                    <tr key={contents._id}>
+                                    <tr key={content._id}>
                                         <th>
                                             <label>
                                                 {i + 1}
@@ -50,7 +52,9 @@ const ProductList = () => {
                                         <td>{content?.tag}</td>
                                         <th>
                                             <div className="">
-                                                <button className="btn btn-ghost btn-lg text-indigo-600 text-xl"><CiViewList /></button>
+                                                <Link to={`/dashboard/content/${content?._id}`} className="btn btn-ghost btn-lg text-indigo-600 text-xl">
+                                                    <CiViewList />
+                                                </Link>
                                                 <button onClick={() => dispatch(deleteContentData(content._id))} className="btn btn-ghost btn-lg text-rose-600"><RiDeleteBin7Line /></button>
                                                 <button className="btn btn-ghost btn-lg text-green-700"><FiEdit /></button>
                                             </div>
