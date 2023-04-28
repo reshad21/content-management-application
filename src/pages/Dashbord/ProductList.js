@@ -12,7 +12,7 @@ const ProductList = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchContent())
-    }, [])
+    }, [dispatch])
     return (
         <div>
             <div className="overflow-x-auto w-full">
@@ -52,11 +52,15 @@ const ProductList = () => {
                                         <td>{content?.tag}</td>
                                         <th>
                                             <div className="">
+
                                                 <Link to={`/dashboard/content/${content?._id}`} className="btn btn-ghost btn-lg text-indigo-600 text-xl">
                                                     <CiViewList />
                                                 </Link>
+
                                                 <button onClick={() => dispatch(deleteContentData(content._id))} className="btn btn-ghost btn-lg text-rose-600"><RiDeleteBin7Line /></button>
-                                                <button className="btn btn-ghost btn-lg text-green-700"><FiEdit /></button>
+
+                                                <Link to={`/dashboard/updateContent/${content?._id}`} className="btn btn-ghost btn-lg text-green-700 text-xl"><FiEdit /></Link>
+
                                             </div>
                                         </th>
                                     </tr>)
