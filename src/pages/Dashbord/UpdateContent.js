@@ -27,8 +27,6 @@ const UpdateContent = () => {
             image,
             title,
         }
-        // console.log(updatedContent);
-
         dispatch(updateSingleContent(updatedContent, id));
 
         // fetch(`http://localhost:5000/articls/${id}`, {
