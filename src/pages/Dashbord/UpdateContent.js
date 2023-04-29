@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
-import { toast } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchSingleContent } from '../../redux/Thunk/content/fetchSIngleContent';
-import { updatedContentData } from '../../redux/actions/content';
+import { updateSingleContent } from '../../redux/Thunk/content/updateSingleContent';
 
 const UpdateContent = () => {
     const contentData = useSelector((state) => state.content);
     const dispatch = useDispatch();
-    const {id} = useParams();
+    const { id } = useParams();
 
     useEffect(() => {
         dispatch(fetchSingleContent(id))
-    }, [dispatch,id])
+    }, [dispatch, id])
 
     const handleUpdate = (e) => {
         e.preventDefault();
@@ -30,23 +29,23 @@ const UpdateContent = () => {
         }
         // console.log(updatedContent);
 
-        dispatch(updatedContentData(updatedContent));
+        dispatch(updateSingleContent(updatedContent, id));
 
-        fetch(`http://localhost:5000/articls/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify(updatedContent),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log('Success:', data);
-                toast.success('product added Successfully.');
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+        // fetch(`http://localhost:5000/articls/${id}`, {
+        //     method: 'PUT',
+        //     body: JSON.stringify(updatedContent),
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        // })
+        //     .then((response) => response.json())
+        //     .then((data) => {
+        //         console.log('Success:', data);
+        //         toast.success('product added Successfully.');
+        //     })
+        //     .catch((error) => {
+        //         console.error('Error:', error);
+        //     });
     }
 
     return (
@@ -59,21 +58,21 @@ const UpdateContent = () => {
                     <label className='mb-2' htmlFor='title'>
                         Title
                     </label>
-                    <input className="input input-bordered w-full max-w-xs" type='text' id='title' name='title' Value={contentData?.title}/>
+                    <input className="input input-bordered w-full max-w-xs" type='text' id='title' name='title' Value={contentData?.title} />
                 </div>
 
                 <div className='flex flex-col w-full max-w-xs'>
                     <label className='mb-2' htmlFor='image'>
                         Image
                     </label>
-                    <input className="input input-bordered w-full max-w-xs" type='text' id='image' name='image' Value={contentData?.image}/>
+                    <input className="input input-bordered w-full max-w-xs" type='text' id='image' name='image' Value={contentData?.image} />
                 </div>
 
                 <div className='flex flex-col w-full max-w-xs'>
                     <label className='mb-3' htmlFor='tag'>
                         Tags
                     </label>
-                    <select className="select select-bordered w-full max-w-xs" name='tag' id='tag'  defaultValue={contentData?.tag}>
+                    <select className="select select-bordered w-full max-w-xs" name='tag' id='tag' defaultValue={contentData?.tag}>
                         <option value='web'>web</option>
                         <option value='front'>front</option>
                         <option value='redux'>redux</option>
