@@ -3,6 +3,7 @@ import { toast } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchSingleContent } from '../../redux/Thunk/content/fetchSIngleContent';
+import { updatedContentData } from '../../redux/actions/content';
 
 const UpdateContent = () => {
     const contentData = useSelector((state) => state.content);
@@ -29,6 +30,8 @@ const UpdateContent = () => {
         }
         // console.log(updatedContent);
 
+        dispatch(updatedContentData(updatedContent));
+
         fetch(`http://localhost:5000/articls/${id}`, {
             method: 'PUT',
             body: JSON.stringify(updatedContent),
@@ -45,6 +48,7 @@ const UpdateContent = () => {
                 console.error('Error:', error);
             });
     }
+
     return (
         <div className='flex justify-center items-center h-full '>
             <form
