@@ -35,7 +35,7 @@ const Home = () => {
     return (
         <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-5 px-16 lg:px-36 md:25'>
             {
-                articles?.map(article => <ArticleCard article={article} key={article._id}></ArticleCard>)
+                (articles.length > 0) && articles?.map(article => <ArticleCard article={article} key={article._id}></ArticleCard>)
             }
         </div>
     );

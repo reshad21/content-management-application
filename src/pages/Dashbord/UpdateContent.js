@@ -29,21 +29,21 @@ const UpdateContent = () => {
                     <label className='mb-2' htmlFor='title'>
                         Title
                     </label>
-                    <input className="input input-bordered w-full max-w-xs" type='text' id='title' />
+                    <input className="input input-bordered w-full max-w-xs" type='text' id='title' Value={contentData?.title}/>
                 </div>
 
                 <div className='flex flex-col w-full max-w-xs'>
                     <label className='mb-2' htmlFor='image'>
                         Image
                     </label>
-                    <input className="input input-bordered w-full max-w-xs" type='text' name='image' id='image' />
+                    <input className="input input-bordered w-full max-w-xs" type='text' name='image' id='image' Value={contentData?.image}/>
                 </div>
 
                 <div className='flex flex-col w-full max-w-xs'>
                     <label className='mb-3' htmlFor='tag'>
                         Tags
                     </label>
-                    <select className="select select-bordered w-full max-w-xs" name='tag' id='tag' >
+                    <select className="select select-bordered w-full max-w-xs" name='tag' id='tag'  value={contentData?.tag}>
                         <option value='web'>web</option>
                         <option value='front'>front</option>
                         <option value='redux'>redux</option>
@@ -56,8 +56,9 @@ const UpdateContent = () => {
                     <label className='mb-2' htmlFor='description'>
                         Description
                     </label>
-                    <textarea className="textarea textarea-bordered textarea-xs w-full max-w-xs" placeholder="Bio" type='text' name='description' id='description'></textarea>
+                    <textarea className="textarea textarea-bordered textarea-xs w-full max-w-xs" placeholder="Bio" type='text' name='description' id='description' value={contentData?.description}></textarea>
                 </div>
+
                 <div className='flex flex-col w-full max-w-xs'></div>
                 <div className='flex justify-between items-center w-full'>
                     <button
