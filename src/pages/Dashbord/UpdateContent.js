@@ -1,16 +1,13 @@
 import React, { useEffect } from 'react';
+import { toast } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchSingleContent } from '../../redux/Thunk/content/fetchSIngleContent';
 
 const UpdateContent = () => {
     const contentData = useSelector((state) => state.content);
-    console.log(contentData);
-
     const dispatch = useDispatch();
-
     const {id} = useParams();
-    console.log(id);
 
     useEffect(() => {
         dispatch(fetchSingleContent(id))
@@ -18,6 +15,35 @@ const UpdateContent = () => {
 
     const handleUpdate = (e) => {
         e.preventDefault();
+        const form = e.target;
+        const description = form.description.value;
+        const tag = form.tag.value;
+        const image = form.image.value;
+        const title = form.title.value;
+
+        const updatedContent = {
+            description,
+            tag,
+            image,
+            title,
+        }
+        // console.log(updatedContent);
+
+        fetch(`http://localhost:5000/articls/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(updatedContent),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Success:', data);
+                toast.success('product added Successfully.');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }
     return (
         <div className='flex justify-center items-center h-full '>
@@ -29,21 +55,21 @@ const UpdateContent = () => {
                     <label className='mb-2' htmlFor='title'>
                         Title
                     </label>
-                    <input className="input input-bordered w-full max-w-xs" type='text' id='title' Value={contentData?.title}/>
+                    <input className="input input-bordered w-full max-w-xs" type='text' id='title' name='title' Value={contentData?.title}/>
                 </div>
 
                 <div className='flex flex-col w-full max-w-xs'>
                     <label className='mb-2' htmlFor='image'>
                         Image
                     </label>
-                    <input className="input input-bordered w-full max-w-xs" type='text' name='image' id='image' Value={contentData?.image}/>
+                    <input className="input input-bordered w-full max-w-xs" type='text' id='image' name='image' Value={contentData?.image}/>
                 </div>
 
                 <div className='flex flex-col w-full max-w-xs'>
                     <label className='mb-3' htmlFor='tag'>
                         Tags
                     </label>
-                    <select className="select select-bordered w-full max-w-xs" name='tag' id='tag'  value={contentData?.tag}>
+                    <select className="select select-bordered w-full max-w-xs" name='tag' id='tag'  defaultValue={contentData?.tag}>
                         <option value='web'>web</option>
                         <option value='front'>front</option>
                         <option value='redux'>redux</option>
@@ -65,7 +91,7 @@ const UpdateContent = () => {
                         className=' px-4 py-3 bg-indigo-500 rounded-md font-semibold text-white text-lg disabled:bg-gray-500 btn btn-primary'
                         type='submit'
                     >
-                        Submit
+                        Update
                     </button>
                 </div>
             </form>
