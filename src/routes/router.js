@@ -5,6 +5,7 @@ import Main from '../Layout/Main/Main';
 import ContentDetails from '../pages/Dashbord/ContentDetails';
 import ProductList from '../pages/Dashbord/ProductList';
 import UpdateContent from '../pages/Dashbord/UpdateContent';
+import AriticleDetails from '../pages/Main/AriticleDetails';
 import Home from '../pages/Main/Home';
 import AddContent from './../pages/Dashbord/AddContent';
 
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/article-details/:id",
+        element: <AriticleDetails />,
       },
     ],
   },

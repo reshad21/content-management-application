@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { fetchSingleContent } from '../../redux/Thunk/content/fetchSIngleContent';
 
 const ContentDetails = () => {
-    const content = useSelector((state) => state.content);
+    const singleContent = useSelector((state) => state.singleContent);
 
     const dispatch = useDispatch();
     let { id } = useParams();
@@ -18,13 +18,12 @@ const ContentDetails = () => {
 
     return (
         <>
-        <div className="card card-side bg-base-100 shadow-xl">
-                <figure><img src={content?.image} alt="Movie" /></figure>
+        <div className="card shadow-xl">
+                <figure><img src={singleContent?.image} alt="" className='h-[450px] object-cover w-full' /></figure>
                 <div className="card-body">
-                    <h2 className="card-title">{content?.title}</h2>
-                    <p>{content?.description}</p>
+                    <h2 className="card-title">{singleContent?.title}</h2>
+                    <p>{singleContent?.description}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Watch</button>
                     </div>
                 </div>
             </div>

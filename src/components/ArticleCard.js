@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ArticleCard = ({ article }) => {
     // console.log(article);
@@ -16,7 +17,7 @@ const ArticleCard = ({ article }) => {
                     }</p>
                     <span className='badge badge-md'>{tag}</span>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-outline btn-accent">Read More</button>
+                        <Link to={`/article-details/${article?._id}`} className="btn btn-outline btn-accent">Read More</Link>
                     </div>
                 </div>
             </div>
