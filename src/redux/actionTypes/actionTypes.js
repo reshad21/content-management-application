@@ -6,3 +6,5 @@ export const DELETE_CONTENT = "DELETE_CONTENT";
 export const LOAD_CONTENT = "LOAD_CONTENT";
 export const READ_LATTER = "READ_LATTER";
 
+
+export const CLEAR_READING_LIST = "CLEAR_READING_LIST";

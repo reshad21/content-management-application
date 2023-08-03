@@ -5,6 +5,7 @@ import { readArticleLater } from '../redux/actions/content';
 
 const ArticleCard = ({ article }) => {
     const dispatch = useDispatch();
+    const  keyword  = window.location.pathname === '/read-later';
     return (
         <div>
             <div className="card w-full glass">
@@ -19,7 +20,11 @@ const ArticleCard = ({ article }) => {
                     <span className='badge badge-md'>{article?.tag}</span>
                     <div className="card-actions justify-end">
                         <Link to={`/article-details/${article?._id}`} className="btn btn-outline btn-accent">Read More</Link>
-                        <button className='btn btn-outline btn-primary' onClick={() => dispatch(readArticleLater(article))}>Read Later</button>
+                        {!keyword && (
+                            <button className='btn btn-outline btn-primary' onClick={() => dispatch(readArticleLater(article))}>
+                                Read Later
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>

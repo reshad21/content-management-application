@@ -7,6 +7,7 @@ import ProductList from '../pages/Dashbord/ProductList';
 import UpdateContent from '../pages/Dashbord/UpdateContent';
 import AriticleDetails from '../pages/Main/AriticleDetails';
 import Home from '../pages/Main/Home';
+import ReadLater from '../pages/Main/ReadLater';
 import AddContent from './../pages/Dashbord/AddContent';
 
 const router = createBrowserRouter([
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/read-later",
+        element: <ReadLater />,
       },
       {
         path: "/article-details/:id",

@@ -1,4 +1,4 @@
-import { ADD_CONTENT, DELETE_CONTENT, LOAD_CONTENT, READ_LATTER, UPDATE_CONTENT, VIEW_CONTENT } from "../actionTypes/actionTypes"
+import { ADD_CONTENT, CLEAR_READING_LIST, DELETE_CONTENT, LOAD_CONTENT, READ_LATTER, UPDATE_CONTENT, VIEW_CONTENT } from "../actionTypes/actionTypes"
 
 export const LoadProduct = (data) => {
     return {
@@ -36,9 +36,16 @@ export const updatedContentData = (id) => {
     }
 }
 
-export const readArticleLater = (article)=>{
-    return{
+export const readArticleLater = (article) => {
+    return {
         type: READ_LATTER,
         payload: article
+    }
+}
+
+
+export const clearReadingList = () => {
+    return {
+        type: CLEAR_READING_LIST,
     }
 }

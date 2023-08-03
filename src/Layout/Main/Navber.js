@@ -33,7 +33,7 @@ const Navber = () => {
                 <li>
                     <Link to='/dashboard'>Dashboard</Link>
                 </li>
-                <Link to='/'>
+                <Link to='/read-later'>
                     <li title='Wishlist' className='bg-indigo-500 p-2 rounded-full'>
                         <IoIosListBox className='text-white' />
                     </li>
