@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { fetchSingleContent } from '../../redux/Thunk/content/fetchSIngleContent';
 
 const ContentDetails = () => {
-    const singleContent = useSelector((state) => state.singleContent);
+    const singleContent = useSelector((state) => state.article.singleContent);
 
     const dispatch = useDispatch();
     let { id } = useParams();

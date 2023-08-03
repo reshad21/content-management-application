@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { deleteContentData } from '../../redux/Thunk/content/deleteContentData';
 import { fetchContent } from '../../redux/Thunk/content/fetchContent';
 const ProductList = () => {
-    const contents = useSelector(state => state.content);
+    const contents = useSelector(state => state.article.content);
     console.log(contents);
     const dispatch = useDispatch();
     useEffect(() => {

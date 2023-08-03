@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { fetchSingleContent } from '../../redux/Thunk/content/fetchSIngleContent';
 
 const AriticleDetails = () => {
-    const singleContentView = useSelector((state) => state.singleContent)
+    const singleContentView = useSelector((state) => state.article.singleContent)
     const dispatch = useDispatch();
     let { id } = useParams();
     useEffect(() => {
@@ -19,7 +19,15 @@ const AriticleDetails = () => {
                 <h2 className='card-title'>{singleContentView?.title}</h2>
                 <div className="py-2">
                     <p>Category : <span className=' text-orange-700 font-bold'>{singleContentView?.tag}</span></p>
-                    <p>ReleaseDate : <span className='text-orange-700 font-bold'>{singleContentView?.date}</span></p>
+                    <p>ReleaseDate : <span className='text-orange-700 font-bold'>{new Date(singleContentView?.date).toLocaleString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: 'numeric',
+                        minute: 'numeric',
+                        second: 'numeric',
+                        timeZoneName: 'short',
+                    })}</span></p>
                 </div>
                 <p className=''>{singleContentView?.description}</p>
             </div>

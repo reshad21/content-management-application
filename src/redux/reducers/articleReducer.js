@@ -12,6 +12,7 @@ const articleReducer = (state = initialState, action) => {
             return {
                 ...state,
                 content: action.payload,
+                loading: false
             }
         case ADD_CONTENT:
             return {

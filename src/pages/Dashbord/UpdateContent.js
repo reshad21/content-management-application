@@ -5,7 +5,7 @@ import { fetchSingleContent } from '../../redux/Thunk/content/fetchSIngleContent
 import { updateSingleContent } from '../../redux/Thunk/content/updateSingleContent';
 
 const UpdateContent = () => {
-    const contentData = useSelector((state) => state.content);
+    const contentData = useSelector((state) => state.article.content);
     const dispatch = useDispatch();
     const { id } = useParams();
 

@@ -4,4 +4,5 @@ export const VIEW_CONTENT = "VIEW_CONTENT";
 export const UPDATE_CONTENT = "UPDATE_CONTENT";
 export const DELETE_CONTENT = "DELETE_CONTENT";
 export const LOAD_CONTENT = "LOAD_CONTENT";
+export const READ_LATTER = "READ_LATTER";
 
