@@ -5,27 +5,7 @@ import ArticleCard from './../../components/ArticleCard';
 
 const Home = () => {
     const articles = useSelector((state) => state.article.content);
-    console.log(articles);
-
     const dispatch = useDispatch();
-
-    //previous system for fetching data using localState
-    // const [articles, setArticle] = useState([]);
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/articls')
-    //         .then((res) => res.json())
-    //         .then(data => setArticle(data))
-    // }, [])
-    // console.log(articles);
-
-    //using redux system and use middleware for fetching data
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/articls')
-    //         .then((res) => res.json())
-    //         .then(data => dispatch(LoadProduct(data)))
-    // }, [dispatch])
-
-
     useEffect(() => {
         dispatch(fetchContent());
     }, [dispatch])
