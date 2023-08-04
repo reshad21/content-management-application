@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiFillDelete } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { readArticleLater } from '../redux/actions/content';
@@ -19,10 +20,15 @@ const ArticleCard = ({ article }) => {
                     }</p>
                     <span className='badge badge-md'>{article?.tag}</span>
                     <div className="card-actions justify-end">
-                        <Link to={`/article-details/${article?._id}`} className="btn btn-outline btn-accent">Read More</Link>
+                        <Link to={`/article-details/${article?._id}`} className="btn btn-outline btn-accent btn-sm">Read More</Link>
                         {!keyword && (
-                            <button className='btn btn-outline btn-primary' onClick={() => dispatch(readArticleLater(article))}>
+                            <button className='btn btn-outline btn-primary btn-sm' onClick={() => dispatch(readArticleLater(article))}>
                                 Read Later
+                            </button>
+                        )}
+                        {keyword && (
+                            <button className='btn btn-outline btn-primary btn-sm' onClick={() => dispatch(readArticleLater(article))}>
+                                <AiFillDelete size={20}/>
                             </button>
                         )}
                     </div>
