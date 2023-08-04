@@ -3,6 +3,7 @@ import { CLEAR_READING_LIST, READ_LATTER, REMOVE_FROM_LIST } from "../actionType
 const initialState = {
     cart: [],
     alertMessage: "",
+    customeMessage: "Nothing To show add item for reading later...!"
 }
 
 
@@ -25,7 +26,6 @@ const userArticleReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cart: [],
-                alertMessage: "Your Reading List is empty..!"
             }
 
         case REMOVE_FROM_LIST:

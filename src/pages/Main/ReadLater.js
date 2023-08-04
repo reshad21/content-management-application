@@ -5,13 +5,16 @@ import { clearReadingList } from '../../redux/actions/content';
 
 const ReadLater = () => {
     const articles = useSelector(state => state.user.cart);
-    const alertMessage = useSelector(state => state.user.alertMessage);
+    const customeMessage = useSelector(state => state.user.customeMessage);
     const dispatch = useDispatch();
+    console.log(articles.length);
 
     let content;
-    if (alertMessage) {
-        content = <p className='text-2xl font-semibold'>{alertMessage}</p>
+
+    if (articles.length===0) {
+        content = <p className='text-2xl font-semibold'>{customeMessage}</p>
     }
+    
     if (articles.length > 0) {
         content =  articles?.map(article => <ArticleCard article={article} key={article._id}></ArticleCard>)
     }
