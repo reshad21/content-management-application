@@ -1,9 +1,10 @@
-import { CLEAR_READING_LIST, READ_LATTER, REMOVE_FROM_LIST } from "../actionTypes/actionTypes";
+import { CLEAR_READING_LIST, READ_LATTER, REMOVE_FROM_LIST, SEARCH_QUERY } from "../actionTypes/actionTypes";
 
 const initialState = {
     cart: [],
     alertMessage: "",
-    customeMessage: "Nothing To show add item for reading later...!"
+    customeMessage: "Nothing To show add item for reading later...!",
+    searchQuery: ""
 }
 
 
@@ -32,6 +33,12 @@ const userArticleReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cart: state.cart.filter(item => item._id !== action.payload._id)
+            }
+
+        case SEARCH_QUERY:
+            return {
+                ...state,
+                searchQuery: action.payload
             }
 
         default:

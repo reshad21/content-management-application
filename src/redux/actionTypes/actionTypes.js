@@ -9,3 +9,4 @@ export const READ_LATTER = "READ_LATTER";
 
 export const CLEAR_READING_LIST = "CLEAR_READING_LIST";
 export const REMOVE_FROM_LIST = "REMOVE_FROM_LIST";
+export const SEARCH_QUERY = "SEARCH_QUERY";

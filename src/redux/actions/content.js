@@ -1,4 +1,4 @@
-import { ADD_CONTENT, CLEAR_READING_LIST, DELETE_CONTENT, LOAD_CONTENT, READ_LATTER, REMOVE_FROM_LIST, UPDATE_CONTENT, VIEW_CONTENT } from "../actionTypes/actionTypes"
+import { ADD_CONTENT, CLEAR_READING_LIST, DELETE_CONTENT, LOAD_CONTENT, READ_LATTER, REMOVE_FROM_LIST, SEARCH_QUERY, UPDATE_CONTENT, VIEW_CONTENT } from "../actionTypes/actionTypes"
 
 export const LoadProduct = (data) => {
     return {
@@ -54,5 +54,12 @@ export const removeFromReadingList = (article) => {
     return {
         type: REMOVE_FROM_LIST,
         payload: article
+    }
+}
+
+export const searching = (searchData) => {
+    return {
+        type: SEARCH_QUERY,
+        payload: searchData
     }
 }
