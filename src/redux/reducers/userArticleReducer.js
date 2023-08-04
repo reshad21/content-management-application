@@ -4,7 +4,7 @@ const initialState = {
     cart: [],
     alertMessage: "",
     customeMessage: "Nothing To show add item for reading later...!",
-    searchQuery: ""
+    searchQuery: [],
 }
 
 
@@ -38,7 +38,7 @@ const userArticleReducer = (state = initialState, action) => {
         case SEARCH_QUERY:
             return {
                 ...state,
-                searchQuery: action.payload
+                searchQuery: [...state.searchQuery, action.payload]
             }
 
         default:

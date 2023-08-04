@@ -3,6 +3,7 @@ import { BiSearchAlt } from "react-icons/bi";
 import { IoIosListBox } from "react-icons/io";
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { searchContent } from '../../redux/Thunk/content/searchContent';
 import { searching } from './../../redux/actions/content';
 
 const Navber = () => {
@@ -23,7 +24,8 @@ const Navber = () => {
                             name='search'
                             id='search'
                             value={searchQuery}
-                            onChange={(e) => dispatch(searching(e.target.value))}
+                            // onChange={(e) => dispatch(searching(e.target.value))}
+                            onChange={(e) => dispatch(searchContent(e.target.value))}
                         />
                         <button onClick={() => dispatch(searching(searchQuery))}>
                             <BiSearchAlt />
