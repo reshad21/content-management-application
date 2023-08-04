@@ -2,7 +2,7 @@ import React from 'react';
 import { AiFillDelete } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { readArticleLater } from '../redux/actions/content';
+import { readArticleLater, removeFromReadingList } from '../redux/actions/content';
 
 const ArticleCard = ({ article }) => {
     const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const ArticleCard = ({ article }) => {
                             </button>
                         )}
                         {keyword && (
-                            <button className='btn btn-outline btn-primary btn-sm' onClick={() => dispatch(readArticleLater(article))}>
+                            <button className='btn btn-outline btn-primary btn-sm' onClick={() => dispatch(removeFromReadingList(article))}>
                                 <AiFillDelete size={20}/>
                             </button>
                         )}

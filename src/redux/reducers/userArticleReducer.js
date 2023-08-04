@@ -1,4 +1,4 @@
-import { CLEAR_READING_LIST, READ_LATTER } from "../actionTypes/actionTypes";
+import { CLEAR_READING_LIST, READ_LATTER, REMOVE_FROM_LIST } from "../actionTypes/actionTypes";
 
 const initialState = {
     cart: [],
@@ -26,6 +26,12 @@ const userArticleReducer = (state = initialState, action) => {
                 ...state,
                 cart: [],
                 alertMessage: "Your Reading List is empty..!"
+            }
+
+        case REMOVE_FROM_LIST:
+            return {
+                ...state,
+                cart: state.cart.filter(item => item._id !== action.payload._id)
             }
 
         default:
