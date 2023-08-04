@@ -25,7 +25,7 @@ const Navber = () => {
                             value={searchQuery}
                             onChange={(e) => dispatch(searching(e.target.value))}
                         />
-                        <button>
+                        <button onClick={() => dispatch(searching(searchQuery))}>
                             <BiSearchAlt />
                         </button>
                     </li>
