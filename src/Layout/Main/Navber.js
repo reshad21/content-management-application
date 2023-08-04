@@ -1,10 +1,12 @@
 import React from 'react';
 import { BiSearchAlt } from "react-icons/bi";
-import { BsFillCartFill } from "react-icons/bs";
 import { IoIosListBox } from "react-icons/io";
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const Navber = () => {
+    const count = useSelector(state => state.user.cart);
+    console.log(count);
     return (
         <nav className='h-14 bg-indigo-200 rounded-full m-2 max-w-7xl mx-auto px-5'>
             <ul className='h-full  mx-auto flex justify-between items-center gap-3 font-semibold text-indigo-900'>
@@ -33,16 +35,17 @@ const Navber = () => {
                 <li>
                     <Link to='/dashboard'>Dashboard</Link>
                 </li>
-                <Link to='/read-later'>
+                <Link to='/read-later' className='relative'>
                     <li title='Wishlist' className='bg-indigo-500 p-2 rounded-full'>
                         <IoIosListBox className='text-white' />
                     </li>
+                    <span className='absolute top-[-10px] right-0 text-white'>{count.length}</span>
                 </Link>
-                <Link to='/cart'>
+                {/* <Link to='/cart'>
                     <li title='cart' className='bg-indigo-500 p-2 rounded-full'>
                         <BsFillCartFill className='text-white ' />
                     </li>
-                </Link>
+                </Link> */}
             </ul>
         </nav>
     );
