@@ -5,7 +5,7 @@ import { fetchSingleContent } from '../../redux/Thunk/content/fetchSIngleContent
 import { updateSingleContent } from '../../redux/Thunk/content/updateSingleContent';
 
 const UpdateContent = () => {
-    const contentData = useSelector((state) => state.article.content);
+    const contentData = useSelector((state) => state.article.singleContent);
     const dispatch = useDispatch();
     const { id } = useParams();
 
@@ -56,7 +56,7 @@ const UpdateContent = () => {
                     <label className='mb-2' htmlFor='title'>
                         Title
                     </label>
-                    <input className="input input-bordered w-full max-w-xs" type='text' id='title' name='title' Value={contentData?.title} />
+                    <input className="input input-bordered w-full max-w-xs" type='text' id='title' name='title' Value={contentData.title} />
                 </div>
 
                 <div className='flex flex-col w-full max-w-xs'>

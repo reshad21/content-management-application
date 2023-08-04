@@ -25,12 +25,12 @@ const Navber = () => {
                 <li>
                     <Link to='/'>Home</Link>
                 </li>
-                <li>
+                {/* <li>
                     <Link to='/top-rated'>Top Rated</Link>
                 </li>
                 <li>
                     <Link to='/about'>About</Link>
-                </li>
+                </li> */}
                 <li>
                     <Link to='/dashboard'>Dashboard</Link>
                 </li>
