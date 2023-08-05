@@ -31,7 +31,7 @@ const UpdateContent = () => {
         dispatch(updateSingleContent(updatedContent, id));
         toast.success('article update Successfully.');
 
-        // fetch(`http://localhost:5000/articls/${id}`, {
+        // fetch(`https://cms-server-eight.vercel.app/articls/${id}`, {
         //     method: 'PUT',
         //     body: JSON.stringify(updatedContent),
         //     headers: {

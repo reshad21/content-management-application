@@ -23,7 +23,7 @@ const AddContent = () => {
 
 
 
-        // fetch('http://localhost:5000/articls', {
+        // fetch('https://cms-server-eight.vercel.app/articls', {
         //     method: 'POST', // or 'PUT'
         //     body: JSON.stringify(article),
         //     headers: {

@@ -4,7 +4,7 @@ export const addContent = (article) => {
     // this is thunk function
     return async(dispatch, getState) => {
         // this is for server site code
-        const res = await fetch('http://localhost:5000/articls', {
+        const res = await fetch('https://cms-server-eight.vercel.app/articls', {
             method: 'POST', // or 'PUT'
             body: JSON.stringify(article),
             headers: {
