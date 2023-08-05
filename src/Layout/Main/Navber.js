@@ -15,7 +15,7 @@ const Navber = () => {
         <>
             <nav className='h-14 bg-indigo-200 rounded-full m-2 max-w-7xl mx-auto px-5 fixed top-0 left-0 right-0 z-50'>
                 <ul className='h-full  mx-auto flex justify-between items-center gap-3 font-semibold text-indigo-900'>
-                    <h1>CMS</h1>
+                    <h1><Link to='/'>CMS</Link></h1>
 
                     <li className='flex bg-white mx-auto h-8 w-full max-w-lg  rounded-full pr-3'>
                         <input

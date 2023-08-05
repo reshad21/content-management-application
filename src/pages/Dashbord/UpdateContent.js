@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { toast } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchSingleContent } from '../../redux/Thunk/content/fetchSIngleContent';
@@ -28,6 +29,7 @@ const UpdateContent = () => {
             title,
         }
         dispatch(updateSingleContent(updatedContent, id));
+        toast.success('article update Successfully.');
 
         // fetch(`http://localhost:5000/articls/${id}`, {
         //     method: 'PUT',
