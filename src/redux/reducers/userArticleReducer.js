@@ -38,7 +38,7 @@ const userArticleReducer = (state = initialState, action) => {
         case SEARCH_QUERY:
             return {
                 ...state,
-                searchQuery: [...state.searchQuery, action.payload]
+                searchQuery: action.payload
             }
 
         default:
